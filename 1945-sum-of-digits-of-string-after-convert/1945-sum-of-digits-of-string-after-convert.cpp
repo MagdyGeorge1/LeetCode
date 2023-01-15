@@ -9,11 +9,11 @@ public:
     
         while(k--)
           {
-              sum = 0;
               for(char c : tmp)
                   sum +=(c-'0');
             tmp = to_string (sum);
+                 sum = 0;
           }
-        return sum;
+        return stoi(tmp);
     }
 };
