@@ -9,9 +9,9 @@ public:
             if(i < 0 and k)    
                 i*=-1 , k--;           
         }
-          sort(nums.begin() , nums.end());
+         int mn_idx = min_element(nums.begin(),nums.end())-nums.begin();
          if(k &1 )
-             nums[0] *=-1;
+             nums[mn_idx] *=-1;
         for(int i : nums)
             ans+=i;
        return ans;
