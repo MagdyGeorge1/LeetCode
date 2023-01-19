@@ -1,12 +1,12 @@
 class Solution {
 public:
     vector<vector<int>> restoreMatrix(vector<int>& rowSum, vector<int>& colSum) {
-        vector<vector<int>>s(rowSum.size() , vector<int>(colSum.size()));
         int n = rowSum.size() , m = colSum.size();
+        vector<vector<int>>s(n , vector<int>(m));
         for(int i =0 ; i< min(n,m);i++)
         { 
             int mn = min(rowSum[i] , colSum[i]);
-           s[i][i] = mn, rowSum [i] -=mn , colSum[i] -=mn; 
+            s[i][i] = mn, rowSum [i] -=mn , colSum[i] -=mn; 
          }
         for(int i = 0;i < n ;i++)
         {
@@ -14,8 +14,8 @@ public:
             {
                 if(i == j)
                     continue;
-                 int mn = min(rowSum[i] , colSum[j]);
-           s[i][j] = mn, rowSum [i] -=mn , colSum[j] -=mn; 
+                int mn = min(rowSum[i] , colSum[j]);
+                s[i][j] = mn, rowSum [i] -=mn , colSum[j] -=mn; 
             }
         }
         return s;
