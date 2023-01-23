@@ -7,11 +7,10 @@ public:
         bool ok = 1;
         for(int ch : graph[node])
         {
-        if(vis[ch] == color )
-                ok &= 0;
-        else if (vis[ch] == 0)
-            ok &= dfs(ch , 3-color , graph);
-            
+         if(vis[ch] == color )
+              ok &= 0;
+         else if (vis[ch] == 0)
+             ok &= dfs(ch , 3-color , graph);       
         }
         return ok;
     }
@@ -19,8 +18,8 @@ public:
         bool ok = 1;
         for (int i = 0 ; i< graph.size();i++)
         {
-            if(!vis[i])
-          ok &= dfs(i , 1 , graph);
+           if(!vis[i])
+            ok &= dfs(i , 1 , graph);
         }
         return ok;
     }
