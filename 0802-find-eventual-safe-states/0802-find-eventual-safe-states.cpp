@@ -10,13 +10,9 @@ public:
             return valid[node];
         int ret = 1;
         valid[node] = 0;
-        for(int i : graph[node])
-        {   
+        for(int i : graph[node])          
             ret &= dfs(i,graph);
-            // if (!dfs(i,graph))
-            //         return 0;
-        }
-     
+        
         return valid[node] = ret ; 
     }
     vector<int> eventualSafeNodes(vector<vector<int>>& graph) {
