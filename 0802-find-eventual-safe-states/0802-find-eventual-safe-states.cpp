@@ -4,25 +4,26 @@ public:
     //  valid =1 not included
     bool dfs(int node  , vector<vector<int>>& graph)
     {
-        // vis[node] = 1;
-        //path.push_back(node);
+      // when solve problem and return to unclosed problem
+        if(vis[node] == 1) 
+            return 0; 
+        // approach dp (mimozation)
         if (valid[node] != -1)
             return valid[node];
         int ret = 1;
-        valid[node] = 0;
+        vis[node] = 1; // mark problem unsolved (open)
         for(int i : graph[node])          
             ret &= dfs(i,graph);
         
-        return valid[node] = ret ; 
+        vis[node] = 2; // mark problem is solved
+        return valid[node] = ret; 
     }
     vector<int> eventualSafeNodes(vector<vector<int>>& graph) {
         int n = graph.size();
         memset(valid , -1, sizeof valid);
         vector<int> ans;
         for(int i = 0 ; i< n;i++)                     
-                 dfs(i , graph);                                      
-        
-            
+                 dfs(i , graph);                                                
         for(int i = 0 ; i< n;i++)
         {
             if(valid[i])
