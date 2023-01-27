@@ -49,17 +49,18 @@ struct DSU {
         for(int i = 0 ; i<edges.size();i++ )  
         {
              int u  = edges[i][0] , v = edges[i][1];   
-            if(i == bl1 )
+             // problem need last node we need skip first one make a cycle
+            if(i == bl1)   
                 continue;
             if(!dsu.connect(u , v))
             {
                 if(bl1 == -1)
                     return edges[i]; // detect cycle      
                 else 
-                    return edges[bl2];
+                    return edges[bl2]; // detect cycle + node have 2 parent
             }
         }
       
-        return edges[bl1];
+        return edges[bl1]; // node have 2 parent
     }
 };
