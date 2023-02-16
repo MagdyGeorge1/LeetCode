@@ -10,9 +10,8 @@ public:
             if(vis[ch] == 1)
               return  not_cycle &= 0 ;
             else if(!vis[ch])
-              not_cycle &=  dfs(ch , adj);
-        }
-        
+              not_cycle &= dfs(ch , adj);
+        }        
         vis[node] = 2;
         return not_cycle;
     }
