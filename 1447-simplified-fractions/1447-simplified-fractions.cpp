@@ -9,8 +9,6 @@ public:
 
            for (int j = 1 ; j < i ; j++)
            {
-               // if (i >= j)
-               //     continue;
                if (__gcd(i , j) == 1)
                {
                    string tmp = to_string(j)+ "/" + to_string(i);
