@@ -8,12 +8,12 @@ public:
     {
         return( x >= 0 and x <= 3 and y>= 0 and y<=2 and arr[x][y] <= 9 );
     }
-    int dp[5000+10][10][10];
+    int dp[5000+10][12];
     int solve(int n , int x , int y)
     {
         if(n == 0)
             return 1;              
-        int &res = dp[n][x][y];
+        int &res = dp[n][arr[x][y]];
         if(~res)
             return res;
         res = 0;
